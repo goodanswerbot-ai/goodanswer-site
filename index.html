@@ -1141,8 +1141,8 @@ html[lang="ko"] .q,html[lang="zh"] .q{font-weight:400}
   }
   document.querySelectorAll('[data-lang]').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));if(b.closest('.mobile-menu'))closeMenu()})});
   (function(){var q=new URLSearchParams(location.search).get('lang'),st=null;try{st=localStorage.getItem('ga-lang')}catch(e){}
-    var l=q||st;if(!l){var nav=(navigator.language||'').toLowerCase();l=nav.indexOf('zh')===0?'zh':nav.indexOf('ko')===0?'ko':'en'}
-    if(l!=='ko')setLang(l)})();
+    var l=q||st||'ko';/* 첫 방문 기본 언어: 한국어 (브라우저 언어 자동 감지 안 함) */
+    setLang(l)})();
 })();
 </script>
 </body>
